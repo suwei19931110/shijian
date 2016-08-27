@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间</title>
+    <style>
+        #time{
+            width: 300px;
+            height: 20px;
+            background: #c5c5c5;
+            margin:0 auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            show();
+        };
+            function panduan(i) {
+                if (i < 10) {
+                    i = '0' + i;
+                }
+                return i;
+            }
+            function show() {
+                    var shijian = document.getElementById("time");
+                    var myDate = new Date();
+                    var year = myDate.getFullYear();
+                    var month = myDate.getMonth() + 1;
+                    var day = myDate.getDate();
+                    var week = myDate.getDay();
+                    var weeked = new Array(7);
+                    weeked[0] = '星期日';
+                    weeked[1] = '星期一';
+                    weeked[2] = '星期二';
+                    weeked[3] = '星期三';
+                    weeked[4] = '星期四';
+                    weeked[5] = '星期五';
+                    weeked[6] = '星期六';
+                    var h = myDate.getHours();
+                    var m = myDate.getMinutes();
+                    var s = myDate.getSeconds();
+                    m = panduan(m);
+                    s = panduan(s);
+
+                    shijian.innerHTML = year + '年' + month + '月' + day + '日' + ' ' + weeked[week] + '  ' + h + ':' + m + ':' + s;
+                }
+
+        setInterval(function(){
+        var shijian = document.getElementById("time");
+        var myDate = new Date();
+        var year = myDate.getFullYear();
+        var month = myDate.getMonth() + 1;
+        var day = myDate.getDate();
+        var week = myDate.getDay();
+        var weeked = new Array(7);
+        weeked[0] = '星期日';
+        weeked[1] = '星期一';
+        weeked[2] = '星期二';
+        weeked[3] = '星期三';
+        weeked[4] = '星期四';
+        weeked[5] = '星期五';
+        weeked[6] = '星期六';
+        var h = myDate.getHours();
+        var m = myDate.getMinutes();
+        var s = myDate.getSeconds();
+
+        shijian.innerHTML = year + '年' + month + '月' + day + '日' + ' ' + weeked[week] + '  ' + h + ':' + m + ':' + s;}
+        ,500);
+
+    </script>
+</head>
+<body>
+    <div id="time"></div>
+</body>
+</html>
